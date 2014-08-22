@@ -53,10 +53,10 @@ public class VentanaPrincipal extends JFrame {
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
-		JMenu mnNewMenu = new JMenu("Archivo");
+		JMenu mnNewMenu = new JMenu("Menú");
 		menuBar.add(mnNewMenu);
 		
-		JMenuItem menuAlta = new JMenuItem("Alta de electrodoméstico");
+		JMenuItem menuAlta = new JMenuItem("Alta de electrodoméstico...");
 		menuAlta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -71,7 +71,7 @@ public class VentanaPrincipal extends JFrame {
 				}
 			}
 		});
-		JMenuItem menuListado = new JMenuItem("Ver listado de electrodomésticos");
+		JMenuItem menuListado = new JMenuItem("Ver listado de electrodomésticos...");
 		menuListado.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				

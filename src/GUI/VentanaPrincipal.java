@@ -77,7 +77,7 @@ public class VentanaPrincipal extends JFrame {
 				
 				if(!(lisAbierto))
 				{
-					new Lista().setVisible(true);
+					new Listado().setVisible(true);
 					lisAbierto = true;
 				}
 				else

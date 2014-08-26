@@ -27,7 +27,7 @@ public class ElectrodomesticoAdapter {
                 _Electrodomestico.add(tv);
                 
                 tv = new Entidades.Television();
-                _Electrodomestico.add(tv);                               
+                _Electrodomestico.add(tv);                
             }
             return _Electrodomestico;
     }

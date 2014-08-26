@@ -331,7 +331,7 @@ public class AltaElectro extends JFrame implements ItemListener {
 		if (alta)
 		{
 			GuardarCambios(electroActual);
-			JOptionPane.showMessageDialog(null, "Electrodomestico ("+ new ElectrodomesticoLogic().GetAll().size() +") guardado.", "LISTO", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(null,electroActual.getTipo()+" guardado.", "LISTO", JOptionPane.INFORMATION_MESSAGE);
 			Limpiar();			
 		}
 		else if (rta == JOptionPane.NO_OPTION)

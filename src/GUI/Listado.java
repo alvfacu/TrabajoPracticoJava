@@ -25,6 +25,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import javax.swing.ListSelectionModel;
 
 public class Listado extends JFrame {
 
@@ -141,6 +142,8 @@ public class Listado extends JFrame {
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
+		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		table.getTableHeader().setReorderingAllowed(false);
 		scrollPane.setViewportView(table);
 		
 		JPanel panel = new JPanel();
@@ -238,7 +241,11 @@ public class Listado extends JFrame {
 		try
 		{			
 			model = new xTableModelElectrodomesticos(txtMin.getText(),txtMax.getText(),(Character)cmbConsumo.getSelectedItem());
-			table.setModel(model);			
+			table.setModel(model);
+			for(int i = 0; i < model.getColumnCount(); i++)
+			{
+				table.getColumnModel().getColumn(i).setResizable(false);
+			}
 		}
 		catch (NumberFormatException ne)
 		{

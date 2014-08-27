@@ -182,7 +182,8 @@ public class AltaElectro extends JFrame implements ItemListener {
 		this.txtPeso.setEnabled(false);
 		this.txtCarga.setEnabled(false);
     	this.txtResolucion.setEnabled(false);
-    	this.chcSintonizador.setEnabled(false);		
+    	this.chcSintonizador.setEnabled(false);
+    	this.chcSintonizador.setSelected(false);
 		
 		JButton btnGuardar = new JButton("Guardar");
 		btnGuardar.addActionListener(new ActionListener() 
@@ -214,6 +215,7 @@ public class AltaElectro extends JFrame implements ItemListener {
     		this.txtPeso.setEnabled(true);
         	this.txtCarga.setEnabled(true);
         	this.txtResolucion.setEnabled(true);
+        	this.chcSintonizador.setSelected(false);
         	this.chcSintonizador.setEnabled(true);
         	
         	String seleccionado=(String)cmbTipo.getSelectedItem();
@@ -227,6 +229,7 @@ public class AltaElectro extends JFrame implements ItemListener {
         		this.txtCarga.setEnabled(false);
             	this.txtResolucion.setEnabled(false);
             	this.chcSintonizador.setEnabled(false);
+            	this.chcSintonizador.setSelected(false);
             }
             if (seleccionado == "Lavarropas")
             {
@@ -368,6 +371,7 @@ public class AltaElectro extends JFrame implements ItemListener {
 		this.txtPeso.setText(null);
 		this.txtCarga.setText(null);
     	this.txtResolucion.setText(null);
+    	this.chcSintonizador.setSelected(false);
 	}
 	
 	public void GuardarCambios(Electrodomestico electro)

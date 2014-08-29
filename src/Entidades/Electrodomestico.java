@@ -1,6 +1,6 @@
 package Entidades;
 
-public class Electrodomestico implements Comparable<Electrodomestico>{
+public class Electrodomestico {
 	
 	private double precio_base;
 	private Color color;
@@ -193,17 +193,5 @@ public class Electrodomestico implements Comparable<Electrodomestico>{
 	public String getTipo()
 	{
 		return "Electrodomestico";
-	}
-
-	@Override
-	public int compareTo(Electrodomestico o) 
-	{
-		int res = this.getTipo().compareTo(o.getTipo());
-		if (res == 0)
-		{
-			res = Double.compare(o.precioFinal(),this.precioFinal());
-		}
-		return res;
-
 	}
 }

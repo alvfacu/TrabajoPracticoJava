@@ -1,7 +1,11 @@
 package TableModelElectrodomesticos;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
 import javax.swing.table.AbstractTableModel;
+
 import Entidades.Electrodomestico;
 import Negocio.ElectrodomesticoLogic;
 
@@ -80,7 +84,19 @@ public class xTableModelElectrodomesticos extends AbstractTableModel {
 					}
 				}
 			}
-		}
+		}		
+
+		Collections.sort(elecSeleccionados,	new Comparator<Electrodomestico>() {
+			public int compare(Electrodomestico o1, Electrodomestico o2)
+				{
+					int res = o1.getTipo().compareTo(o2.getTipo());
+					if (res == 0)
+					{
+						res = Double.compare(o2.precioFinal(),o1.precioFinal());
+					}
+					return res;
+				}
+		});
 		
 		this.setDataSource(elecSeleccionados);
 	}
@@ -176,6 +192,4 @@ public class xTableModelElectrodomesticos extends AbstractTableModel {
 		}
 		return nom;		
 	}
-
-
 }

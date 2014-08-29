@@ -1,7 +1,6 @@
 package Datos;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 import Entidades.Electrodomestico;
 
@@ -51,8 +50,6 @@ public class ElectrodomesticoAdapter {
     public void Save(Electrodomestico el)
     {
         	getElectrodomestico().add(el);
-        	Collections.sort(getElectrodomestico());
-    }
-    
+    }    
 
 }

@@ -248,7 +248,7 @@ public class AltaElectro extends JFrame implements ItemListener {
 		Component[] componentes = contentPane.getComponents(); 
 		boolean alta = false;
 		vacios = false;
-		int rta = 0;
+		int rta = 0;		
 		
 		if ("Lavarropas"==(String)cmbTipo.getSelectedItem())
 		{
@@ -256,14 +256,14 @@ public class AltaElectro extends JFrame implements ItemListener {
 			
 			if (vacios)
 			{
-				rta = JOptionPane.showConfirmDialog(null, "Existen campos vacíos. ¿Desea dar de alta al producto de todas formas?", "CUIDADO !", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+				rta = JOptionPane.showConfirmDialog(null, "Existen campos vacíos. ¿Desea dar de alta al producto de todas formas?\nSe agregarán valores por defectos", "CUIDADO !", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
 				if (rta == JOptionPane.YES_OPTION)
 				{
 					if (!(txtPeso.getText().isEmpty()) && !(txtPrecioBase.getText().isEmpty()))
 					{
 						try 
 						{
-							electroActual = new Lavarropas(Double.parseDouble(txtPrecioBase.getText()),Double.parseDouble(txtPeso.getText()));
+							new ElectrodomesticoLogic().AddLavarropas(Double.parseDouble(txtPrecioBase.getText()),Double.parseDouble(txtPeso.getText()));
 							alta = true;
 						} 
 						catch (NumberFormatException e) 
@@ -273,7 +273,7 @@ public class AltaElectro extends JFrame implements ItemListener {
 					}
 					else 
 					{
-						electroActual = new Lavarropas();
+						new ElectrodomesticoLogic().AddLavarropas();
 						alta = true;
 					}					
 				}
@@ -282,7 +282,7 @@ public class AltaElectro extends JFrame implements ItemListener {
 			{
 				try 
 				{
-					electroActual = new Lavarropas(Double.parseDouble(txtPrecioBase.getText()),Double.parseDouble(txtPeso.getText()),txtColor.getText(),(txtConsumo.getText()).charAt(0), Double.parseDouble(txtCarga.getText()));
+					new ElectrodomesticoLogic().AddLavarropas(Double.parseDouble(txtPrecioBase.getText()),Double.parseDouble(txtPeso.getText()),txtColor.getText(),(txtConsumo.getText()).charAt(0), Double.parseDouble(txtCarga.getText()));
 					alta = true;
 				} 
 				catch (NumberFormatException e) 
@@ -296,14 +296,14 @@ public class AltaElectro extends JFrame implements ItemListener {
 			vacios = comprobarCamposVacios(componentes);
 			if (vacios)
 			{
-				rta = JOptionPane.showConfirmDialog(null, "Existen campos vacíos. ¿Desea dar de alta al producto de todas formas?", "CUIDADO !", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+				rta = JOptionPane.showConfirmDialog(null, "Existen campos vacíos. ¿Desea dar de alta al producto de todas formas?\nSe agregarán valores por defectos", "CUIDADO !", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
 				if (rta == JOptionPane.YES_OPTION)
 				{
 					if (!(txtPeso.getText().isEmpty()) && !(txtPrecioBase.getText().isEmpty()))
 					{
 						try 
 						{
-							electroActual = new Television(Double.parseDouble(txtPrecioBase.getText()),Double.parseDouble(txtPeso.getText()));
+							new ElectrodomesticoLogic().AddTelevision(Double.parseDouble(txtPrecioBase.getText()),Double.parseDouble(txtPeso.getText()));
 							alta = true;
 						} 
 						catch (NumberFormatException e) 
@@ -313,7 +313,7 @@ public class AltaElectro extends JFrame implements ItemListener {
 					}
 					else 
 					{
-						electroActual = new Television();
+						new ElectrodomesticoLogic().AddTelevision();
 						alta = true;
 					}
 				}
@@ -322,7 +322,7 @@ public class AltaElectro extends JFrame implements ItemListener {
 			{
 				try 
 				{
-					electroActual = new Television(Double.parseDouble(txtPrecioBase.getText()),Double.parseDouble(txtPeso.getText()),txtColor.getText(),(txtConsumo.getText()).charAt(0),Double.parseDouble(txtResolucion.getText()), chcSintonizador.isSelected());
+					new ElectrodomesticoLogic().AddTelevision(Double.parseDouble(txtPrecioBase.getText()),Double.parseDouble(txtPeso.getText()),txtColor.getText(),(txtConsumo.getText()).charAt(0),Double.parseDouble(txtResolucion.getText()), chcSintonizador.isSelected());
 					alta = true;
 				} 
 				catch (NumberFormatException e)
@@ -333,15 +333,14 @@ public class AltaElectro extends JFrame implements ItemListener {
 	      }
 		if (alta)
 		{
-			GuardarCambios(electroActual);
-			JOptionPane.showMessageDialog(null,electroActual.getTipo()+" guardado.", "LISTO", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(null,(String)cmbTipo.getSelectedItem()+" guardado.", "LISTO", JOptionPane.INFORMATION_MESSAGE);
 			Limpiar();			
 		}
 		else if (rta == JOptionPane.NO_OPTION)
 		{
 			JOptionPane.showMessageDialog(null, "No ha sido guardado", "LISTO", JOptionPane.INFORMATION_MESSAGE);
 		}
-		else if (("Seleccione tipo para dar de alta" == (String)cmbTipo.getSelectedItem()))
+		else if (("Seleccione tipo" == (String)cmbTipo.getSelectedItem()))
 		{
 			JOptionPane.showMessageDialog(null, "Seleccione una opción", "ERROR", JOptionPane.ERROR_MESSAGE);
 			Limpiar();
@@ -374,13 +373,8 @@ public class AltaElectro extends JFrame implements ItemListener {
     	this.chcSintonizador.setSelected(false);
 	}
 	
-	public void GuardarCambios(Electrodomestico electro)
-	{
-		new ElectrodomesticoLogic().Save(electro);
-	}
 	
 	//Modificación
-	
 	public AltaElectro(final Electrodomestico electro)
 	{
 		setResizable(false);

@@ -2,6 +2,7 @@ package Entidades;
 
 public class ConsumoEnergetico {
 	
+	private int id;
 	private char letra;
 	private double precio;
 	
@@ -17,7 +18,7 @@ public class ConsumoEnergetico {
 		return precio;
 	}
 	
-	public void setPrecio(float precio) {
+	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
 	
@@ -30,6 +31,14 @@ public class ConsumoEnergetico {
 	public ConsumoEnergetico(char letra)
 	{
 		this.letra = letra;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 }

@@ -2,6 +2,7 @@ package Entidades;
 
 public class Electrodomestico {
 	
+	private int id;
 	private double precio_base;
 	private Color color;
 	private double peso;
@@ -65,7 +66,7 @@ public class Electrodomestico {
 	{
 		return consumo;
 	}
-	
+		
 	private boolean comprobarConsumoEnergetico(char letra)
 	{
 		char[] letras = {'A','B','C','D','E','F'};
@@ -194,4 +195,20 @@ public class Electrodomestico {
 	{
 		return "Electrodomestico";
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+
+	}
+	
+	public void setPrecio_base(double precio_base) {
+		this.precio_base = precio_base;
+	}
+
+	
+
 }

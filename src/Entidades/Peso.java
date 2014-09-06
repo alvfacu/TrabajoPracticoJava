@@ -2,24 +2,24 @@ package Entidades;
 
 public class Peso {
 	
-	private double tamañoMax;
-	private double tamañoMin;
+	private double tamMax;
+	private double tamMin;
 	private double precio;
 	
 	public double getTamañoMax() {
-		return tamañoMax;
+		return tamMax;
 	}
 	
 	public void setTamañoMax(double tamañoMax) {
-		this.tamañoMax = tamañoMax;
+		this.tamMax = tamañoMax;
 	}
 	
 	public double getTamañoMin() {
-		return tamañoMin;
+		return tamMin;
 	}
 	
 	public void setTamañoMin(double tamañoMin) {
-		this.tamañoMin = tamañoMin;
+		this.tamMin = tamañoMin;
 	}
 	
 	public double getPrecio() {
@@ -32,8 +32,8 @@ public class Peso {
 	
 	public Peso(double minimo, double mayor, double precio)
 	{
-		this.tamañoMin = minimo;
-		this.tamañoMax = mayor;
+		this.tamMin = minimo;
+		this.tamMax = mayor;
 		this.precio = precio;
 	}
 }

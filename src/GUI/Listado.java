@@ -25,6 +25,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.ArrayList;
+
 import javax.swing.ListSelectionModel;
 
 public class Listado extends JFrame {
@@ -37,7 +39,6 @@ public class Listado extends JFrame {
 	private JTextField txtMin;
 	private JTextField txtMax;
 	private JComboBox cmbConsumo;
-	private Character[] letras = {' ','A','B','C','D','E','F'};
 	private JTable table;
 	private xTableModelElectrodomesticos model;
 	private JButton btnActualizar;
@@ -115,7 +116,7 @@ public class Listado extends JFrame {
 		lblConsumo.setBounds(34, 54, 124, 14);
 		pnlCriterio.add(lblConsumo);
 		
-		cmbConsumo = new JComboBox(letras);
+		cmbConsumo = new JComboBox(obtenerLetras());
 		cmbConsumo.setBounds(181, 51, 52, 20);
 		pnlCriterio.add(cmbConsumo);
 		
@@ -256,5 +257,10 @@ public class Listado extends JFrame {
 	private Electrodomestico DevolverElectroSeleccionado(int i) {
 		
 		return model.getDataSource().get(i);
+	}
+	
+	private Character[] obtenerLetras()
+	{
+		return new ConsumoLogic().getLetras();
 	}
 }

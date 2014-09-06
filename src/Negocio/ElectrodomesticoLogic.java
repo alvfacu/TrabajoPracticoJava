@@ -23,12 +23,7 @@ public class ElectrodomesticoLogic {
 
     public ArrayList<Electrodomestico> GetAll()
     {
-        return electroData.GetAll();
-    }
-
-    public Electrodomestico GetOne(Electrodomestico electro)
-    {
-        return electroData.GetOne(electro);
+        return electroData.getTodosElectrodomesticos();
     }
     
     public void AddLavarropas()
@@ -63,13 +58,11 @@ public class ElectrodomesticoLogic {
     
     public void Save(Electrodomestico electro)
     {
-    	
-    	getElectroData().Save(electro);
+    	getElectroData().addElectrodomestico(electro);
     }
 
     public void Delete(Electrodomestico electro)
     {
-    	electroData.Delete(electro);
+    	electroData.deleteElectrodomestico(electro);
     }    
-
 }

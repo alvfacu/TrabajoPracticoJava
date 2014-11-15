@@ -1,5 +1,6 @@
 package Negocio;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import Entidades.Electrodomestico;
@@ -7,8 +8,12 @@ import Entidades.Television;
 import Entidades.Lavarropas;
 import Datos.ElectrodomesticoAdapter;;
 
-public class ElectrodomesticoLogic {
+public class ElectrodomesticoLogic implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private ElectrodomesticoAdapter electroData;
 
     public ElectrodomesticoLogic()

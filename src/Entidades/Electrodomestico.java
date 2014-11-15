@@ -1,7 +1,9 @@
 package Entidades;
 
-public class Electrodomestico {
-	
+import java.io.Serializable;
+
+public class Electrodomestico implements Serializable{
+
 	private int id;
 	private double precio_base;
 	private Color color;

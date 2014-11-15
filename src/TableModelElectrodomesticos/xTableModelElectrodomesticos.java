@@ -1,5 +1,6 @@
 package TableModelElectrodomesticos;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -9,7 +10,7 @@ import javax.swing.table.AbstractTableModel;
 import Entidades.Electrodomestico;
 import Negocio.ElectrodomesticoLogic;
 
-public class xTableModelElectrodomesticos extends AbstractTableModel {
+public class xTableModelElectrodomesticos extends AbstractTableModel implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	

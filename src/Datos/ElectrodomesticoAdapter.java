@@ -10,10 +10,15 @@ import Entidades.Lavarropas;
 import Entidades.Television;
 import Datos.ColorAdapter;
 
+import java.io.Serializable;
 import java.sql.*;
 
-public class ElectrodomesticoAdapter {
+public class ElectrodomesticoAdapter implements Serializable {
 	
+	public ElectrodomesticoAdapter()
+	{
+	}
+		
 	public ArrayList<Electrodomestico> getTodosElectrodomesticos()
 	{
 		ArrayList<Electrodomestico> electros = new ArrayList<Electrodomestico>();

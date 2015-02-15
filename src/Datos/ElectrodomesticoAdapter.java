@@ -15,6 +15,11 @@ import java.sql.*;
 
 public class ElectrodomesticoAdapter implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public ElectrodomesticoAdapter()
 	{
 	}
@@ -173,6 +178,58 @@ public class ElectrodomesticoAdapter implements Serializable {
 				sqle.printStackTrace();
 			}			
 		}		
-	}   
+	}
+
+	public void deleteElectrodomestico(int id) {
+		
+		String sql = "DELETE FROM electrodomesticos WHERE id=?";
+		
+		PreparedStatement sentencia = null;
+		ResultSet rs = null;
+		
+		try 
+		{			
+			sentencia = DataConnectionManager.getInstancia().getConn().prepareStatement(sql);
+			sentencia.setInt(1, id);
+			sentencia.executeUpdate();					
+		} 
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			try
+			{
+				if (rs!=null)
+				{
+					rs.close();
+				}
+				if (sentencia!=null && !sentencia.isClosed())
+				{
+					sentencia.close();
+				}
+				DataConnectionManager.getInstancia().CloseConn();
+			}
+			catch (SQLException sqle)
+			{
+				sqle.printStackTrace();
+			}
+		}
+    }
+
+	public Electrodomestico getElectrodomesticoByID(int id) {
+		
+		Electrodomestico electroActual = null;
+		ArrayList<Electrodomestico> electros = this.getTodosElectrodomesticos();
+		for(Electrodomestico el : electros)
+		{
+			if(el.getId() == id)
+			{
+				electroActual = el;
+			}
+		}		
+		return electroActual;
+	}
 
 }

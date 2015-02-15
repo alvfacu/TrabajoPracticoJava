@@ -2,6 +2,10 @@ package Entidades;
 
 public class Lavarropas extends Electrodomestico {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private double carga;
 	
 	public double getCarga() {

@@ -69,5 +69,15 @@ public class ElectrodomesticoLogic implements Serializable {
     public void Delete(Electrodomestico electro)
     {
     	electroData.deleteElectrodomestico(electro);
-    }    
+    }
+
+	public void Delete(int id) {
+		
+		electroData.deleteElectrodomestico(id);
+	}
+	
+	public Electrodomestico getElectrodomestico(int id)
+	{
+		return electroData.getElectrodomesticoByID(id);
+	}
 }

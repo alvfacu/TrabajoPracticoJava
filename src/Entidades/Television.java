@@ -2,6 +2,10 @@ package Entidades;
 
 public class Television extends Electrodomestico {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private double resolucion;
 	private boolean sintonizador_TDT;
 	

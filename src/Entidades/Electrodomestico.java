@@ -4,6 +4,10 @@ import java.io.Serializable;
 
 public class Electrodomestico implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int id;
 	private double precio_base;
 	private Color color;
